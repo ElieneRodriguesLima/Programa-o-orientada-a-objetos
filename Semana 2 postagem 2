@@ -1,0 +1,75 @@
+class celular:
+    #Atributos
+    nome = None
+    ano = None
+    sistema = None
+    cor = None
+    ligado = False
+    volume = None
+    volume_max = None
+    volume_min = None
+    
+    #Construtor
+    def __init__(self, nome, ano, cor, sistema, ligado):
+        self.nome = nome
+        self.ano = ano
+        self.cor = cor
+        self.sistema = sistema
+        self.ligado = ligado
+        self.volume_max = 40
+        self.volume_min = 0
+        
+    #Metodos
+    def ligar(self):
+        if self.ligado == True:
+            print(f'Celular{self.nome}está ligado.')
+
+    def sistemas(self):
+        if self.ligado == True:
+            if self.sistema > 4:
+                print(f' Seu celular está obrecarregado, reinicie o sistema dele.')
+            else:
+                print(f'Seu sistema está em ótimo estado.')
+
+        print('\nINFORMAÇÕES DO CELULAR')
+        print('..'*20)
+        print(f"""Nome: {self.nome};Ano:{self.ano};Cor:{self.cor};Sistema:{self.sistema}.""")
+            
+    def desligar(self, ligado):
+        if self.ligado == False:
+            print(f'Celular{self.nome}está desligado.')
+
+    def aumentar_volume(self):
+        self.volume += 2
+        if self.volume > 15:
+            print(f"Volume {self.volume} acima do permitido.")
+        else:
+            print(f"O volume do celular aumentou para: {self.volume}.")
+            
+    def diminuir_volume(self):
+        self.volume -= 2
+        if self.volume < 1:
+            print(f"O volume {self.volume} abaixo do permito.")
+        else:
+            print(f"O volume do celular diminuiu para: {self.volume}.")
+        
+
+            
+
+#Criação dos objetos
+#Xiaomi
+meu_celular1 = celular('Xiaomi', 'Azul', True, 2019, 'Android')
+meu_celular1.ligar()
+meu_celular1.sistemas()
+meu_celular1.volume = 15
+meu_celular1.aumentar_volume()
+meu_celular1.diminuir_volume()
+
+#Samsung
+meu_celular2 = celular('Samsung', 'Lilás', True, 2017, 'Android')
+meu_celular2.ligar()
+meu_celular2.sistemas()
+meu_celular1.volume = 4
+meu_celular1.aumentar_volume()
+meu_celular1.diminuir_volume()
+
